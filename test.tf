@@ -75,7 +75,7 @@ resource "aws_security_group" "Jenkins-security_group" {
   }
 }
 data "aws_eip" "by_public_ip" {
-  public_ip = "3.74.16.251"
+  public_ip = "3.66.126.203"
 }
 
 resource "aws_eip_association" "eip_assoc" {
@@ -92,6 +92,7 @@ resource "tls_private_key" "rsa" {
   rsa_bits  = 4096
 }
 resource "local_file" "TF-key" {
-  content  = tls_private_key.rsa.private_key_pem
-  filename = "/var/lib/jenkins/.ssh/tf-key"
+  content         = tls_private_key.rsa.private_key_pem
+  filename        = "/var/lib/jenkins/.ssh/tf-key"
+  file_permission = "400"
 }
