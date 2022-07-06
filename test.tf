@@ -7,7 +7,7 @@ resource "aws_instance" "Apach" {
   ami                    = "ami-02584c1c9d05efa69"
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.Jenkins-security_group.id]
-  key_name               = "key_for_aws"
+  key_name               = "key_jenk_aws"
 
   tags = {
     Name    = "Apache"
@@ -20,7 +20,7 @@ resource "aws_instance" "Slave" {
   ami                    = "ami-02584c1c9d05efa69"
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.Jenkins-security_group.id]
-  key_name               = "key_for_aws"
+  key_name               = "key_jenk_aws"
 
   tags = {
     Name    = "Node"
@@ -33,7 +33,7 @@ resource "aws_instance" "Git" {
   ami                    = "ami-02584c1c9d05efa69"
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.Jenkins-security_group.id]
-  key_name               = "key_for_aws"
+  key_name               = "key_jenk_aws"
 
   tags = {
     Name    = "Git"
@@ -83,7 +83,7 @@ resource "aws_eip_association" "eip_assoc" {
   allocation_id = data.aws_eip.by_public_ip.id
 }
 resource "aws_key_pair" "deployer" {
-  key_name   = "key_for_aws"
+  key_name   = "key_jenk_aws"
   public_key = tls_private_key.rsa.public_key_openssh
 }
 
