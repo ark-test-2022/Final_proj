@@ -48,7 +48,7 @@ resource "aws_security_group" "Jenkins-security_group" {
   }
 }
 data "aws_eip" "by_public_ip" {
-  public_ip = "3.66.126.203"
+  public_ip = "35.156.108.186"
 }
 
 resource "aws_eip_association" "eip_assoc" {
